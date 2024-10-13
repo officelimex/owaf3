@@ -5,9 +5,9 @@
 	font-family: 'Museo500';
 	src: url('../fonts/museo500-regular-webfont.eot');
 	src: url('../fonts/museo500-regular-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/museo500-regular-webfont.woff') format('woff'),
-		 url('../fonts/museo500-regular-webfont.ttf') format('truetype'),
-		 url('../fonts/museo500-regular-webfont.svg#Museo500') format('svg');
+		url('../fonts/museo500-regular-webfont.woff') format('woff'),
+		url('../fonts/museo500-regular-webfont.ttf') format('truetype'),
+		url('../fonts/museo500-regular-webfont.svg#Museo500') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -20,9 +20,9 @@ body {
 	background: rgb(229, 229, 229);
 	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(255, 255, 255)), to(rgb(229, 229, 229)));
 	background: -webkit-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
-	background:    -moz-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
-	background:      -o-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
-	background:         radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	background: -moz-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	background: -o-radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
+	background: radial-gradient(rgb(255, 255, 255), rgb(229, 229, 229));
 	color: #555555;
 	font-family: "Helvetica Neue", Arial, Sans-Serif;
 	font-weight: 400;
@@ -35,7 +35,12 @@ body {
 /* Typography
 -----------------------------------------------------------------------------*/
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: 'Museo500', Georgia, Serif;
 	font-weight: 500;
 	color: #222222;
@@ -76,8 +81,8 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar {
 	-webkit-overflow-scrolling: touch;
 	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	background: #2c2f32;
 	bottom: 25px;
 	color: #ffffff;
@@ -195,8 +200,8 @@ h1, h2, h3, h4, h5, h6 {
 .content {
 	-webkit-overflow-scrolling: touch;
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
-	   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
-	        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.05);
 	background: white;
 	bottom: 25px;
 	left: 305px;
@@ -231,12 +236,12 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 15px 0px;
 }
 
-.content h1 + p,
-.content h2 + p,
-.content h3 + p,
-.content h4 + p,
-.content h5 + p,
-.content h6 + p {
+.content h1+p,
+.content h2+p,
+.content h3+p,
+.content h4+p,
+.content h5+p,
+.content h6+p {
 	margin-top: 0px;
 }
 
@@ -245,11 +250,11 @@ h1, h2, h3, h4, h5, h6 {
 .content h1 {
 	color: #383838;
 	font-size: 38px;
-	margin-top: 0px;
-	margin-bottom: 0px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-.content h1 + h5 {
+.content h1+h5 {
 	color: #888888;
 	font-family: "Helvetica Neue", Arial, Sans-Serif;
 	font-size: 15px;
@@ -257,7 +262,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0px;
 }
 
-.content h1 + h5 + p {
+.content h1+h5+p {
 	font-size: 18px;
 	font-weight: 500;
 	margin-top: 25px;
@@ -397,7 +402,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content .simulated-example {
-/*	-webkit-box-align: center;
+	/*	-webkit-box-align: center;
 	-webkit-box-pack: center;
 	display: -webkit-box;*/
 	width: 100%;
@@ -407,10 +412,8 @@ h1, h2, h3, h4, h5, h6 {
 -----------------------------------------------------------------------------*/
 
 .content .simulator-wrapper .simulator {
-		-webkit-box-reflect:
-		below 0px
-		-webkit-gradient(
-			linear,
+	-webkit-box-reflect:
+		below 0px -webkit-gradient(linear,
 			left top,
 			left bottom,
 			from(transparent),
@@ -482,51 +485,90 @@ h1, h2, h3, h4, h5, h6 {
 /* Google Prettify Bootstrat Theme
 -----------------------------------------------------------------------------*/
 
-.com { color: #93a1a1; }
-.lit { color: #195f91; }
-.pun, .opn, .clo { color: #93a1a1; }
-.fun { color: #dc322f; }
-.str, .atv { color: #D14; }
-.kwd, .linenums .tag { color: #1e347b; }
-.typ, .atn, .dec, .var { color: teal; }
-.pln { color: #48484c; }
+.com {
+	color: #93a1a1;
+}
+
+.lit {
+	color: #195f91;
+}
+
+.pun,
+.opn,
+.clo {
+	color: #93a1a1;
+}
+
+.fun {
+	color: #dc322f;
+}
+
+.str,
+.atv {
+	color: #D14;
+}
+
+.kwd,
+.linenums .tag {
+	color: #1e347b;
+}
+
+.typ,
+.atn,
+.dec,
+.var {
+	color: teal;
+}
+
+.pln {
+	color: #48484c;
+}
 
 .prettyprint {
-    text-shadow: 0px 1px 0px #ffffff;
+	text-shadow: 0px 1px 0px #ffffff;
 }
 
 .prettyprint.linenums {
-  -webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
-     -moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
-          box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+	-webkit-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+	-moz-box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
+	box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0;
 }
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
-  margin: 0 0 0 33px; /* IE indents via margin-left */
+	margin: 0 0 0 33px;
+	/* IE indents via margin-left */
 }
 
 ol.linenums li {
-  color: #bebec5;
-  line-height: 18px;
-  padding-left: 12px;
-  text-shadow: 0 1px 0 #fff;
+	color: #bebec5;
+	line-height: 18px;
+	padding-left: 12px;
+	text-shadow: 0 1px 0 #fff;
 }
 
 .content h3 small {
-	color:gray;
+	color: gray;
 	font-size: 70%;
 }
 
-span.tag{
-	color:#2727ff;
+span.tag {
+	color: #2727ff;
 }
+
 span.com {
 	font-style: italic;
-} 
-.table-of-contents a {display: block;}
+}
 
-.table-of-contents ul li {margin-bottom: 1px;}
-ul, ol {
-margin: 3px 0; 
+.table-of-contents a {
+	display: block;
+}
+
+.table-of-contents ul li {
+	margin-bottom: 1px;
+}
+
+ul,
+ol {
+	margin: 3px 0;
 }

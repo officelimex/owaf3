@@ -15,7 +15,5 @@ window.addEvent('domready', function() {
 		simulator.setDeviceOrientation(el.get('data-orientation') || 'portrait');
 		simulator.setApplication(el.get('data-simulator-app'));
 	});
- 
- 
 
 });
