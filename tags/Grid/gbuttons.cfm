@@ -39,7 +39,7 @@
 		<cfset ArrayAppend(request.grid.buttons, {
 			title 			: "",
 			help 			: "Export to #ucase(_export_type)#",
-			url 			: "awaf/tags/grid/export.cfm?type=#_export_type#&grid_name=#request.grid.tag.name#",
+			url 			: "owaf/tags/grid/export.cfm?type=#_export_type#&grid_name=#request.grid.tag.name#",
 			ignoreRoleCheck : true,
 			icon 			: _icon,
 			type 			: "external",

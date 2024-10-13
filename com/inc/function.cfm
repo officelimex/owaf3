@@ -47,12 +47,12 @@
 
 	public string function AEncrypt(required string phrase)	{
 
-		return encrypt(arguments.phrase, application.awaf.secretkey, 'AES/CBC/PKCS5Padding', 'HEX')
+		return encrypt(arguments.phrase, application.owaf.secretkey, 'AES/CBC/PKCS5Padding', 'HEX')
 	}
 
 	public string function ADecrypt(required string enc_phrase)	{
 
-		return decrypt(arguments.enc_phrase, application.awaf.secretkey, 'AES/CBC/PKCS5Padding', 'HEX')
+		return decrypt(arguments.enc_phrase, application.owaf.secretkey, 'AES/CBC/PKCS5Padding', 'HEX')
 	}
 
 	// param 	@fieldname -> form.fieldnames -

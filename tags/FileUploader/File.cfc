@@ -1,4 +1,4 @@
-component output="false" extends="assetgear.awaf.com.Controller"  {
+component output="false" extends="assetgear.owaf.com.Controller"  {
 
 	remote string function upload(boolean save_to_temp_first=true) returntypeformat="json"	{
 		

@@ -130,7 +130,7 @@
 										<button class="btn btn-info btn-sm" style="border-top-right-radius: 0;" type="submit" id="#submit_btn#"><i class="fal fa-comment"></i> Post</button>
 									</div>
 								</div>
-								<input type="hidden" name="comment_file_path" value="#application.awaf.attachmentpath#comment/"/>
+								<input type="hidden" name="comment_file_path" value="#application.owaf.attachmentpath#comment/"/>
 							<cfelse>
 								<label class="sr-only">Leave a comment...</label>
 								<textarea class="form-control tag-comment" placeholder="Leave a comment" required name="comment" rows="2"></textarea>

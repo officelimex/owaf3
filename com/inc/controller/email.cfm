@@ -6,17 +6,17 @@
 		required string body,
 		string bcc,
 		string cc,
-		string replyto = application.awaf.mail.from,
+		string replyto = application.owaf.mail.from,
 		array attachments = arraynew(),
 		array inline_attachments = arraynew(),
-		string from = application.awaf.mail.from,
-		string username = application.awaf.mail.from,
-		string password = application.awaf.mail.password,
-		string port = application.awaf.mail.port)	{
+		string from = application.owaf.mail.from,
+		string username = application.owaf.mail.from,
+		string password = application.owaf.mail.password,
+		string port = application.owaf.mail.port)	{
 					
 		if(arguments.from == arguments.username)	{
-			if(Isdefined("application.awaf.mail.username"))	{
-				arguments.username = application.awaf.mail.username
+			if(Isdefined("application.owaf.mail.username"))	{
+				arguments.username = application.owaf.mail.username
 			}
 		}
 		
@@ -53,8 +53,8 @@
 			.addParam(name:'CC', 				value: "#arguments.cc# ", 							cfsqltype: 'cf_sql_varchar')
 			.addParam(name:'ReplyTo', 	value: "#arguments.replyto# ", 					cfsqltype: 'cf_sql_varchar')
 			.addParam(name:'_From_', 		value: arguments.from,				 					cfsqltype: 'cf_sql_varchar')
-			.addParam(name:'Password', 	value: application.awaf.mail.password, 	cfsqltype: 'cf_sql_varchar')
-			.addParam(name:'Server', 		value: application.awaf.mail.server, 		cfsqltype: 'cf_sql_varchar')
+			.addParam(name:'Password', 	value: application.owaf.mail.password, 	cfsqltype: 'cf_sql_varchar')
+			.addParam(name:'Server', 		value: application.owaf.mail.server, 		cfsqltype: 'cf_sql_varchar')
 			.addParam(name:'Port', 			value: arguments.port, 									cfsqltype: 'cf_sql_integer')
 			.addParam(name:'Username', 	value: arguments.username, 							cfsqltype: 'cf_sql_varchar');
 
@@ -124,7 +124,7 @@
 			stEvent.organizerName = "Organizer Name";
 
 		if (NOT IsDefined("stEvent.organizerEmail"))
-			stEvent.organizerEmail = "#application.awaf.mail.from#";
+			stEvent.organizerEmail = "#application.owaf.mail.from#";
 
 		if (NOT IsDefined("stEvent.subject"))
 			stEvent.subject = "";

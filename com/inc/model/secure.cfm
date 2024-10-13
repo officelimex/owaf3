@@ -3,7 +3,7 @@
 		
 		var rt = createGUID()
 		if(arguments.salt != "")	{
-			rt = hmac(arguments.secret & application.awaf.secretkey, arguments.salt, 'HMACSHA256')
+			rt = hmac(arguments.secret & application.owaf.secretkey, arguments.salt, 'HMACSHA256')
 		}
 		return rt
 	}

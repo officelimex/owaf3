@@ -256,13 +256,13 @@ function appHistoryScrollRight() {
 }
 function showProgressBar() {
 
-	$('#awaf_progress_bar').append("<span class='overlay'></span><i class='fal fa-spinner fa-pulse fa-4x'></i>");
+	$('#owaf_progress_bar').append("<span class='overlay'></span><i class='fal fa-spinner fa-pulse fa-4x'></i>");
 
 }
 
 function hideProgressBar() {
 
-	$('#awaf_progress_bar').html('');
+	$('#owaf_progress_bar').html('');
 
 }
 

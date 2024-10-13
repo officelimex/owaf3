@@ -180,7 +180,7 @@
 		    	</cfdefaultcase>
 		    </cfswitch>
 
-			'url'  : 'awaf/tags/Editable/ajax.cfm?model_desc=#attributes.model#&min=#attributes.Min#&max=#attributes.Max#',
+			'url'  : 'owaf/tags/Editable/ajax.cfm?model_desc=#attributes.model#&min=#attributes.Min#&max=#attributes.Max#',
 
 			<cfswitch expression="#attributes.type#">
 				<cfcase value="money">

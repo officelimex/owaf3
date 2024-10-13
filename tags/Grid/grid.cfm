@@ -392,7 +392,7 @@
                         "processing": true,
                         "searching": #request.grid.hasSearch#,
                         "ajax": {
-													"url": "awaf/tags/grid/ajax.cfm?grid_name=#Attributes.name#",
+													"url": "owaf/tags/grid/ajax.cfm?grid_name=#Attributes.name#",
 													"type": "POST"
                         }
 

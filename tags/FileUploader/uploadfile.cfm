@@ -59,7 +59,7 @@
 	    <cfset _dropzone = application.fn.GetRandomVariable()/>
 
 		var #_dropzone# = new Dropzone("###Attributes.id#", {
-			url: 'awaf/tags/fileuploader/File.cfc?method=upload&modelId=#Attributes.modelId#&key=#Attributes.key#&userid=#attributes.userid#&tag=#Attributes.tag#',
+			url: 'owaf/tags/fileuploader/File.cfc?method=upload&modelId=#Attributes.modelId#&key=#Attributes.key#&userid=#attributes.userid#&tag=#Attributes.tag#',
 			addRemoveLinks: true,
 			thumbnailWidth:200,
 			thumbnailHeight:200,
@@ -80,7 +80,7 @@
 
 			if (typeof file.xhr === 'undefined')	{
 				$.ajax({
-					url: 'awaf/tags/fileuploader/File.cfc?method=deleteFromServer&file_name='+file.path+'&size='+file.size,
+					url: 'owaf/tags/fileuploader/File.cfc?method=deleteFromServer&file_name='+file.path+'&size='+file.size,
 				});
 			}
 			else 	{
@@ -88,7 +88,7 @@
 				fld = JSON.parse(fld).file_name;
 
 				$.ajax({
-					url: 'awaf/tags/fileuploader/File.cfc?method=delete&file_name='+fld,
+					url: 'owaf/tags/fileuploader/File.cfc?method=delete&file_name='+fld,
 					success: function( strData ){
 
 						var _hd = $('###Attributes.id#q')[0];

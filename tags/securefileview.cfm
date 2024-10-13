@@ -4,7 +4,7 @@
 
 <cfif ThisTag.ExecutionMode EQ "Start">
 
-	<cfset skey = application.awaf.secretkey />
+	<cfset skey = application.owaf.secretkey />
 
 	<cfparam name="Attributes.TagName" type="string" default="FileView"/>
 	<cfparam name="Attributes.fileid" type="numeric" default="0"/>

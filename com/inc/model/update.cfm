@@ -250,8 +250,8 @@
 			for (var x in arguments.frm)	{
 				
 				if(left(x, 4) == '___$')	{
-					var col = decrypt(replace(x,'___$',''), application.awaf.secretKey, 'AES/CBC/PKCS5Padding', 'Hex')
-					arguments.frm[col] = decrypt(frm[x], application.awaf.secretKey, 'AES/CBC/PKCS5Padding', 'Hex')
+					var col = decrypt(replace(x,'___$',''), application.owaf.secretKey, 'AES/CBC/PKCS5Padding', 'Hex')
+					arguments.frm[col] = decrypt(frm[x], application.owaf.secretKey, 'AES/CBC/PKCS5Padding', 'Hex')
 				}
 			}
 			setColumns(struct=arguments.frm)

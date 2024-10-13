@@ -1,0 +1,72 @@
+
+<div id="content" class="content full">
+	<h1>Getting Started</h1>
+
+	<p>This guide will walk you through the steps needed to setup a Moobile development environment.</p>
+
+	<h2>Browser Requirements</h2>
+
+	<p>You will need to use one of these browsers to run a Moobile app:</p>
+
+	<ul><li>Safari 5.1.5 or better.</li>
+	<li>Google Chrome 18 or better.</li>
+	</ul><p>Even though most of the development is done on a desktop browser, it's <em>highly</em> recommended to test on a mobile device very often. Do not wait until your app is completed to test it on a mobile device.</p>
+
+	<p><strong>Note:</strong></p>
+
+	<p>If you are using Google Chrome, make sure you start it using the <code>--allow-file-access-from-files</code> command line option <a href="https://code.google.com/p/chromium/issues/detail?id=40787">as explained here</a> or it might not work properly.</p>
+
+	<h2>Download the Moobile Boiler Plate</h2>
+
+	<p>This package contains everything you need to start working on a Moobile app such as:</p>
+
+	<ul><li>MooTools, minified and unminified.</li>
+	<li>Moobile, minified and unminified.</li>
+	<li>Moobile simulator.</li>
+	<li>Stylesheets</li>
+	<li>Documentation</li>
+	<li>Build scripts</li>
+	<li>YUI Compressor</li>
+	</ul><p><a href="https://github.com/jpdery/moobile-boiler-plate/zipball/master">Download the boiler plate here</a></p>
+
+	<h3>The boiler plate structure:</h3>
+
+	<p>Once extracted this should look like this:</p>
+
+	<p><img src="../assets/guides/GettingStarted/moobile-boiler-plate.png"></p>
+
+	<h4>documentation folder</h4>
+
+	<p>This folder contains the HTML documentation for the current version of Moobile.</p>
+
+	<h4>moobile-core</h4>
+
+	<p>This folder contains Moobile's source with all dependencies. If you need to rebuild the source, use the following command from root directory:</p>
+
+	<pre class="prettyprint"><code>moobile-core/build &gt; www/js/libs/moobile-0.2.js
+	</code></pre>
+
+	<h4>moobile-psd</h4>
+
+	<p>This folder contains various psd files used for the current iOS style.</p>
+
+	<h4>moobile-simulator</h4>
+
+	<p>This folder contains the simulator. Open <code>index.html</code> in web browser to start the simulator.</p>
+
+	<h4>tools</h4>
+
+	<p>Contains tools such as the yui-compressor</p>
+
+	<h4>www</h4>
+
+	<p>This folder contains your app and all its assets.</p>
+
+	<h4>www-src</h4>
+
+	<p>This folder contains your app classes, one per file. It also contains MooTools packager and build scripts. You don't necesseraly need to use this folder. However, if you want to merge all your files into one <code>app.js</code> file, use this command:</p>
+
+	<pre class="prettyprint"><code>www-src/build &gt; www/js/app.js
+	</code></pre>
+
+</div>

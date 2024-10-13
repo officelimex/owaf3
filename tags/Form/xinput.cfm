@@ -262,7 +262,7 @@
 				</cfcase>
 
 				<cfcase value="hidden">
-					<input type="hidden" value="#encrypt(attributes.value, application.awaf.secretkey, 'AES/CBC/PKCS5Padding', 'HEX')#" name="___$#encrypt(attributes.name, application.awaf.secretkey, 'AES/CBC/PKCS5Padding', 'HEX')#"/>
+					<input type="hidden" value="#encrypt(attributes.value, application.owaf.secretkey, 'AES/CBC/PKCS5Padding', 'HEX')#" name="___$#encrypt(attributes.name, application.owaf.secretkey, 'AES/CBC/PKCS5Padding', 'HEX')#"/>
 				</cfcase>
 
 				<cfdefaultcase>

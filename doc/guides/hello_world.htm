@@ -1,0 +1,112 @@
+
+	<div id="content" class="content full"><h1>Hello World</h1>
+
+<p>This guide will walk you through the steps needed create an app with a single button displaying an alert upon being tapped. Through this tutorial, you will learn how to create a view controller, load its view and customize it using CSS styles.</p>
+
+<h3>Requirements</h3>
+
+<p>To use this guide you must download and extract the <a href="https://moobilejs.com/donwload/moobile-boiler-plate-0.2.zip">Moobile Boiler Plate</a>.</p>
+
+<h3>Note</h3>
+
+<p>If you are using Google Chrome, make sure you start it using the <code>--allow-file-access-from-files</code> command line option <a href="https://code.google.com/p/chromium/issues/detail?id=40787">as explained here</a> or it might not work properly.</p>
+
+<h2>Creating a view template</h2>
+
+<p>In the <code>www/templates/views/</code> directory, create a <code>hello-world-view.html</code> file and add the following code:</p>
+
+<pre class="prettyprint"><code>&lt;div class="hello-world-view"&gt;
+    &lt;div data-role="button" data-name="hello-world-button"&gt;Hello World&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>This defines our view element. Adding an element with the <code>data-role="button"</code> attribute creates a button. In this case it's named <code>hello-world-button</code>.</p>
+
+<h2>Creating a view controller and load the view</h2>
+
+<p>The next step is to create a view controller and load its view. Open <code>www/app.js</code> and add the following code:</p>
+
+<pre class="prettyprint"><code>var HelloWorldViewController = new Class({
+
+    Extends: Moobile.ViewController,
+
+    loadView: function() {
+        this.view = Moobile.View.at('templates/views/hello-world-view.html');
+    }
+
+});
+</code></pre>
+
+<p>This creates a new view controller and loads its view using the template at <code>templates/views/hello-world-view.html</code>.</p>
+
+<h2>Adding events</h2>
+
+<p>At this point we need to add a <code>tap</code> event on the button. Update the previous code to look like this:</p>
+
+<pre class="prettyprint"><code>var HelloWorldViewController = new Class({
+
+    Extends: Moobile.ViewController,
+
+    helloWorldButton: null,
+
+    loadView: function() {
+        this.view = Moobile.View.at('templates/views/hello-world-view.html');
+    },
+
+    viewDidLoad: function() {
+        this.helloWorldButton = this.view.getChildComponent('hello-world-button');
+        this.helloWorldButton.addEvent('tap', this.bound('onHelloButtonTap'));
+    },
+
+    destroy: function() {
+        this.helloWorldButton.removeEvent('tap', this.bound('onHelloButtonTap'));
+        this.helloWorldButton = null;
+        this.parent();
+    },
+
+    onHelloButtonTap: function() {
+        var alert = new Moobile.Alert();
+        this.view.addChildComponent(alert);
+        alert.setTitle('Hello');
+        alert.showAnimated();
+    }
+
+});
+</code></pre>
+
+<p>The <code>loadView</code> method is called once the view is totally loaded and its components can be accessed. In this case we retrieve the button from the view and add a <code>tap</code> event. Upon begin tapped this controller creates an alert and displays it.</p>
+
+<h2>Loading the view controller</h2>
+
+<p>Finally we need to load our view controller. Open the file <code>www/index.html</code> and locate this code:</p>
+
+<pre class="prettyprint"><code>window.addEvent('ready', function() {
+    var rootViewController = new ViewController.Home(); // replace this with your own root view controller
+    new Moobile.WindowController().setRootViewController(rootViewController);
+});
+</code></pre>
+
+<p>Replace with this code:</p>
+
+<pre class="prettyprint"><code>window.addEvent('ready', function() {
+    var rootViewController = new HelloWorldViewController();
+    new Moobile.WindowController().setRootViewController(rootViewController);
+});
+</code></pre>
+
+<p>Open the simulator located at <code>moobile-simulator/index.html</code> in you web browser and enjoy!</p>
+
+<h2>Making it pretty</h2>
+
+<p>The presentation of the entire view is less than optimal. The button would certainly look better centered with more padding. Open <code>www/css/styles.css</code> and add the following lines:</p>
+
+<pre class="prettyprint"><code>.view.hello-world-view .hello-world-view-content {
+    -webkit-box-pack: center;
+    padding: 12px;
+}
+</code></pre>
+
+<p>Reload and you're done!</p>
+
+<p><a href="https://moobilejs.com/downloads/demo-helloworld.zip">Download the demo</a></p>
+</div>

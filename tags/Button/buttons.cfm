@@ -164,8 +164,8 @@
 							</cfif>
 	                    </cfif>
 	                    <cfif x.printurl neq "">
-	                    	<cfparam name="application.awaf.staff_client" default="false" type="boolean">
-	                    	<cfif application.awaf.staff_client>
+	                    	<cfparam name="application.owaf.staff_client" default="false" type="boolean">
+	                    	<cfif application.owaf.staff_client>
 	                    		window.open('#application.site.url#views/inc/print/print.cfm?page=#lcase(request.user.usertype)#/#x.printurl#&&#x.urlparam#');
 	                    	<cfelse>
 	                    		window.open('views/inc/print/print.cfm?page=#x.printurl#&#x.urlparam#');

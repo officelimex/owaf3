@@ -208,7 +208,7 @@
       var _#Attributes.Id#_getdata = function(sh, i, bool) {
         var s_input = document.getElementById("_#Attributes.Id#_search");
         $.ajax({
-          url: 'awaf/tags/grid/ajax.cfm?grid_name=#Attributes.name#',
+          url: 'owaf/tags/grid/ajax.cfm?grid_name=#Attributes.name#',
           data: '#search_c#&search[regex]=false&search[value]=' + s_input.value + '&order[0][column]=#attributes.sortBy#&order[0][dir]=#attributes.sortDir#&start='+ i + '&length=50&draw=&',
           type: 'POST',
           beforeSend: function () {

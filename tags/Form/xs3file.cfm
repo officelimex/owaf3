@@ -51,7 +51,7 @@
     <cfset _dropzone = application.fn.GetRandomVariable()/>
 
     var #_dropzone# = new Dropzone("###Attributes.id#", {
-      url: 'awaf/tags/form/s3File.cfc?method=upload&save_to_temp_first=#attributes.temporaryLocation#',
+      url: 'owaf/tags/form/s3File.cfc?method=upload&save_to_temp_first=#attributes.temporaryLocation#',
       addRemoveLinks: true,
       thumbnailWidth:200,
       thumbnailHeight:200,
@@ -71,7 +71,7 @@
         //console.log(file);
         if(confirm('Are you sure you want to delete ' + file.name + '? You will not be able to undo this action'))	{
           $.ajax({
-            url: 'awaf/tags/form/s3File.cfc?method=deleteFromServer&file_name='+file.path+'&path=#Attributes.path#&size='+file.size,
+            url: 'owaf/tags/form/s3File.cfc?method=deleteFromServer&file_name='+file.path+'&path=#Attributes.path#&size='+file.size,
           });
         }
         else 	{
@@ -83,7 +83,7 @@
         fld = JSON.parse(fld).file_name;
 
         $.ajax({
-          url: 'awaf/tags/form/s3File.cfc?method=deleteTemp&file_name='+fld,
+          url: 'owaf/tags/form/s3File.cfc?method=deleteTemp&file_name='+fld,
           success: function( strData ){
 
             var _hd = $('###Attributes.id#q')[0];

@@ -550,7 +550,7 @@
 
 				<cfcase value="document">
 					<a class="btn btn-sm btn-info" href="
-					javascript:directModal('awaf/tags/tableedit/upload_file.cfm', {title: 'Upload Documents','param':'sessionid=#attr.sessionid#'});
+					javascript:directModal('owaf/tags/tableedit/upload_file.cfm', {title: 'Upload Documents','param':'sessionid=#attr.sessionid#'});
 					">Upload File</a>
 				</cfcase>
 

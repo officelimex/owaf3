@@ -35,7 +35,7 @@ component 	{
 		//get all columns in the model
 		// dbname = this.datasource,
 
-		if(application.awaf.mode == 1)	{
+		if(application.owaf.mode == 1)	{
 			_connect(arguments.datasource)
 		}
 		else {

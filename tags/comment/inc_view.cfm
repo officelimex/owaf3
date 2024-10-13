@@ -91,7 +91,7 @@
               <li>
                 <span class="fa-li"><i class="#getfileType(f)#"></i></span>
                 <!--- <a target="_blank" href="#application.s3.url#pvt/#comments.company_TenantId#/document/comment/#comments.FileNames#/#f#">...#right(f,45)#</a> --->
-                <cfset _key = encrypt(comments.CommentId & "-" & request.user.userid & "-#i++#-#comments.TenantId#" , application.awaf.secretkey, 'AES/CBC/PKCS5Padding', 'Hex')/>
+                <cfset _key = encrypt(comments.CommentId & "-" & request.user.userid & "-#i++#-#comments.TenantId#" , application.owaf.secretkey, 'AES/CBC/PKCS5Padding', 'Hex')/>
                 <small><a target="_blank" href="attachment/view.cfm?file=#_key#">...#right(f,40)#</a></small>
               </li>
               </cfloop>
