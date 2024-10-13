@@ -1,0 +1,22 @@
+.body-bg{
+  background-position:  left !important;
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.55)), url(../img/covers/amni-body-cover.jpg);
+ }
+ .bg-vibrant {
+   background-image: linear-gradient(to bottom right, rgba(0, 5, 12, 0.86), rgba(0, 0, 0, 0)), url(../img/covers/amni-sider-cover.jpg) !important;
+ }
+ @media only screen and (max-width: 922px) {
+  #sidebarCollapse {
+    position: fixed;
+    top: 0;
+    left: 15px;
+    z-index: 99;
+    width: 240px;
+    height: 100%; 
+		overflow: auto;
+    background-repeat: no-repeat, no-repeat;
+    background-position: 50%, 50%;
+    background-size: cover, cover;
+    background-image: linear-gradient(to bottom right, rgba(0, 5, 12, 0.86), rgba(0, 0, 0, 0)), url(../img/covers/amni-sider-cover.jpg) !important;
+  }
+}
