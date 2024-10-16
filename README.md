@@ -1164,11 +1164,180 @@ filter item
 
 ### Link
 
+Link to another view page
+
+###### Attributes
+
+| Name | Type   | Description                                                                                                                                                                                                                                                                        |
+|------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| url* | String | Where to link to                                                                                                                                                                                                                                                                   |
+| icon | String | Icon to display before the text of the link                                                                                                                                                                                                                                        |
+| type | String | The type of action to perform when clicked <br/> - `load` or `ajax` :-  link to another page. <br/> - `execute`:- run a command somewhere with out reloading the page. <br/> - `modal` :- display a modal window. <br/> - `print` - sends to pdf output. <br/><br/>Default: `load` |
+
 ### PlainGrid
+light version of the Grid
+
+#### pGrid
+
+Create a flat grid / table with no sophisticated features line the grid
+
+##### Attributes
+
+| Name        | Type    | Description                                                                  |
+|-------------|---------|------------------------------------------------------------------------------|
+| datasource* | Any     | Where to pull data from                                                      |
+| bordered    | Boolean | Add border arround the table <br/>Default: `false`                           |
+| compressed  | Boolean | Compress the table <br/>Default: `false`                                     |
+| hover       | Boolean | Add hover effect to the table row <br/>Default: `false`                      |
+| striped     | Boolean | table property, add alternating color to the table row <br/>Default: `false` |
+
+
+##### Example
+
+```html
+  <cf_pgrid datasource="#view.items#">
+
+    <!--- the content of you plain grid goes in here --->
+
+  </cf_pgrid>
+
+```
+
+#### pColumns
+
+This is a wraper for `cf_pcolumn`
+
+##### pColumn
+
+This is responsible for displaying individual column
+
+###### Attributes
+
+| Name    | Type    | Description                                                                                                                                 |
+|---------|---------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| value*  | Any     | the field in the query to display on the column                                                                                             |
+| caption | String  | the caption to the column<br/>Default: the value passed to the `cf_pCoulmn`                                                                 |
+| class   | String  | the caption to the column<br/>Default: the value passed to the `cf_pCoulmn`                                                                 |
+| format  | String  | How the value of the column should be formated <br/> - `money`<br/> - `date`<br/> - `text`<br/> - `html`<br/> - `link` <br/>Default: `text` |
+| nowrap  | Boolean | dont allow wrap on the column<br/>Default: `false`                                                                                          |
+
+
+###### Example
+
+```html
+  <cf_pGrid datasource="#view.items#" bordered>
+
+    <cf_pColumns>
+
+      <cf_pColumn value="Currentrow" caption="##"/>
+      <cf_pColumn value="Description"/> 
+      <cf_pColumn value="Quantity" caption="Qty" nowrap/>
+      <cf_pColumn value="UnitPrice" caption="Price" format="money"/>
+      <cf_pColumn value="UnitPrice*Quantity" caption="Amount $" nowrap format="money"/>
+
+    </cf_pColumns>
+
+  </cf_pGrid>
+
+```
 
 ### Tab
 
+#### ttab
+
+Create a tab, and a wrapper for tab content
+
+##### titem
+
+Create a tab item/content
+
+###### Attributes
+
+| Name     | Type    | Description                                   |
+|----------|---------|-----------------------------------------------|
+| title*   | String  | the title on the tab                          |
+| icon     | String  | Icon to display before the tab title          |
+| isactive | Boolean | make the tab item active.<br/>Default: `true` |
+| url      | String  | Source of the tab content                     |
+
+###### Example
+
+```html
+  <cf_ttab>
+    <cf_titem title="Title1" isActive icon="file-text">
+      <!---- tab item content --->
+    </cf_titem>
+    <cf_titem title="Title2" url="controller.method" icon=""/>
+  </cf_ttab>
+
+```
+
 ### TableEdit
+
+Edit data in tabular form
+
+#### Attributes
+
+| Name             | Type    | Description                                                                                                                                                                                                                                              |
+|------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| datasource*      | Any     | the source of the data to edit                                                                                                                                                                                                                           |
+| datatype*        | String  | the data type you want to provide to the tag<br/>Default: `query`                                                                                                                                                                                        |
+| id*              | String  | javascript id of the entire component. the id is generated automaticaly <br/>Default: `getRandomVariable()`                                                                                                                                              |
+| allowNewLineItem | String  | Allow user to add new item to table<br/> Default:`true`                                                                                                                                                                                                  |
+| bordered         | Boolean | add border to the table<br/> Default:`false`                                                                                                                                                                                                             |
+| candelete        | Boolean | Allow user to be able to delete row/record from the table<br/> Default:`true`                                                                                                                                                                            |
+| compressed       | Boolean | compress the table<br/> Default:`false`                                                                                                                                                                                                                  |
+| defaultview      | String  | determin which view should be rendered. text or edit<br/>- text display the table in text form with no input element<br/>- while the edit mode display the table in an input form, waiting for the user to start making changes<br/><br/>Default: `text` |
+| editall          | Boolean | convert the table to edit mode, user can start making changes on the table without clicking on the edit button/link first<br/><br/>Default: `false`                                                                                                      |
+| hover            | Boolean | Add hover style to the table<br/><br/>Default: `false`                                                                                                                                                                                                   |
+| name             | String  | This use differentiate the tableedit tag from other onces in the same page. the name will be reference when trying to save the data into the database                                                                                                    |
+| striped          | String  | Add strips to the table<br/>Default: `true`                                                                                                                                                                                                              |
+
+#### tColumns
+
+wrapper for table columns
+
+##### tColumn
+
+Column for the table edit
+
+###### Attributes
+
+| Name       | Type    | Description                                                                                                                                                                                                           |
+|------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name*      | String  | the name of the field in the database you want to update                                                                                                                                                              |
+| selected*  | String  | only applies if attribute type is `select`                                                                                                                                                                            |
+| url*       | String  | only applies if attribute type is `select2`                                                                                                                                                                           |
+| align      | String  | how to align the content of the column                                                                                                                                                                                |
+| caption    | String  | The header title for the column<br/>Default: name attribute of this tag                                                                                                                                               |
+| currency   | String  | only applies if attribute type is `money`<br/>Default: $                                                                                                                                                              |
+| delimiters | String  | only applies if attribute type is `select` <br/>Default: `,`                                                                                                                                                          |
+| display    | List    | only applies if attribute type is select. <br/>Default: `attribute.value`                                                                                                                                             |
+| hidden     | String  | Use attribute to store key field/primary key value <br/>Default: `false`                                                                                                                                              |
+| id         | String  | javascript id of the element                                                                                                                                                                                          |
+| min        | Numeric | The minimum value that can be accepted by the input field                                                                                                                                                             |
+| nowrap     | Boolean | don't wrap the content, <br/> Default: `false`                                                                                                                                                                        |
+| readonly   | Boolean | make the column readonly. <br/> Default: `false`                                                                                                                                                                      |
+| required   | Boolean | Make entry for the field required. <br/> Default: `false`                                                                                                                                                             |
+| rows       | Numeric | only applies if attribute type is `textarea`<br/>Default: `2`                                                                                                                                                         |
+| type       | String  | The type of element to render while performing data entry. The following type are valid: <br/> - `text`<br/> - `textarea`<br/> - `money`<br/> - `number`<br/> - `select`<br/> - `select2` <br/><br/> Default : `text` |
+| id         | String  | javascript id of the elemen                                                                                                                                                                                           |
+| width      | String  | The width of the column in % or px                                                                                                                                                                                    |
+
+###### Example
+
+```html
+  <cf_tableedit name="users">
+    <cf_tcolumns>
+
+      <cf_tcolumn value="Quantity" caption="QTY" width="8%" required type="number" name="Quantity" />
+      <cf_tcolumn caption="Description" width="55%" required type="textarea" value="Description"/>
+
+    </cf_tcolumns>
+  </cf_tcolumns>
+
+```
+
 
 ## Contribute to the Documentation
 
