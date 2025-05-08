@@ -38,7 +38,7 @@
           <cfif Attributes.value == "Yes">
             #Attributes.onYes#; 
           </cfif>
-          <cfif Attributes.value == "No">
+          <cfif Attributes.value == "No" || Attributes.value == "">
             #Attributes.onNo#; 
           </cfif>
         });
