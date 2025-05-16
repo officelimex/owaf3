@@ -269,8 +269,9 @@
 									<div class="cf_table_edit_input #display_form#">
 										<cfif attr.readOnly>
 											#val_#
+											<input type="hidden" name="#attr.name#_#j#" id="#attr.id#_#j#" value="#val__#"/>
+
 										<cfelse>
-											<!---textarea name="#attr.name#_#j#" id="#attr.id#_#j#" class="form-control">#val__#</textarea--->
 											<input type="hidden" name="#attr.name#_#j#" id="#attr.id#_#j#" class="form-control" value="#val__#"/>
 
 											<script type="text/javascript">
