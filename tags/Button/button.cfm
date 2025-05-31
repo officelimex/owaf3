@@ -80,7 +80,7 @@
     <cfif Attributes.printurl is not "">
         <cfset nurl = Attributes.printurl/>
         <cfset Attributes.printurl = replace(Attributes.printurl,'.','/','all')/>
-        <cfset Attributes.printurl = replace(Attributes.printurl,'@','&key=')/>
+        <cfset Attributes.printurl = replace(Attributes.printurl,'~','&key=')/>
     </cfif>
 
     <cfif Attributes.blankpageurl is not "">
@@ -99,8 +99,11 @@
         <cfset nurl = control & '.' & method/>
 
     </cfif>
-
-    <cfif listFindNoCase(request.user.pageURLs, listfirst(nurl,'@')) or Attributes.IsDivider>
+    <cfset deChar = "~"/>
+    <cfif listFindNoCase(nurl, "@")>
+        <cfset deChar = "@"/>
+    </cfif>
+    <cfif listFindNoCase(request.user.pageURLs, listfirst(nurl,deChar)) or Attributes.IsDivider>
         <!---cfassociate basetag="cf_Buttons" /--->
         <cfset ArrayAppend(request.buttons,Attributes)/>
     </cfif>

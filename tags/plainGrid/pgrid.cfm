@@ -50,12 +50,12 @@
 					<cfswitch expression="#attr.format#">
 						<cfcase value="link">
 							<cfset _id = evaluate(attr.value)/>
-							<cfset _result = replace(attr.url,'@key','@' & _id)/>
+							<cfset _result = replace(attr.url,'@key','~' & _id)/>
 							<a onclick="loadPage('#_result#',{})">#_id#</a>
 						</cfcase>
 						<cfcase value="modal">
 							<cfset _id = evaluate(attr.value)/>
-							<cfset _result = replace(attr.url,'@key','@' & _id)/>
+							<cfset _result = replace(attr.url,'@key','~' & _id)/>
 							<a onclick="showModal('#_result#',{})">#_id#</a>
 						</cfcase>
 						<cfcase value="money">

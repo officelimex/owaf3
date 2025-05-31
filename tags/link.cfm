@@ -60,7 +60,12 @@
 	<cfset Content = THISTAG.GeneratedContent/>
 	<cfset THISTAG.GeneratedContent = "" />
 	
-	<cfif listFindNoCase(request.user.pageURLs, listfirst(nurl,'@'))>
+	<cfset deChar = "~"/>
+	<cfif listFindNoCase(nurl, "@")>
+		<cfset deChar = "@"/>
+	</cfif>
+
+	<cfif listFindNoCase(request.user.pageURLs, listfirst(nurl, deChar))>
 
 		<cfswitch expression="#Attributes.type#">
 			<cfcase value="print">
@@ -68,7 +73,7 @@
 					<cfset Attributes.icon = "print"/>
 				</cfif>
 				<cfset printurl = replace(Attributes.url,'.','/','all')/>
-				<cfset printurl = replace(printurl,'@','&key=')/>
+				<cfset printurl = replace(printurl,deChar,'&key=')/>
 				<a title="#Attributes.help#" class="#attributes.class#" style="#Attributes.cssStyle#" href="views/inc/print/print.cfm?page=#printurl#&#Attributes.urlparam#" target="_blank" ><cfif Attributes.icon != ""><i class="#Attributes.icontype##Attributes.icon# #Attributes.iconCss#"></i><cfif len(trim(Content))>&nbsp;</cfif></cfif>#Content#</a>
 			</cfcase>
 			<cfcase value="modal">
@@ -132,7 +137,7 @@
 			</cfcase>
 			<cfcase value="blank">
 				<cfset _nurl = replace(Attributes.url,'.','/','all')/>
-				<cfset _nurl = replace(_nurl,'@','.cfm?id=')/>
+				<cfset _nurl = replace(_nurl,deChar,'.cfm?id=')/>
 				<a title="#Attributes.help#"
 					class="#attributes.class#"
 					style="#Attributes.cssStyle#"

@@ -23,7 +23,10 @@
 <!--- close tag --->
 
 <cfelse>
-
+	<cfset deChar = "~"/>
+	<cfif listFindNoCase(Attributes.url, "@")>
+		<cfset deChar = "@"/>
+	</cfif>
 	<cfset Attributes.Content = THISTAG.GeneratedContent />
 	<cfset THISTAG.GeneratedContent = "" />
 
@@ -33,7 +36,7 @@
 
     <cfelse>
 
-			<cfif listFindNoCase(request.user.pageURLs, listfirst(Attributes.url,'@'))>
+			<cfif listFindNoCase(request.user.pageURLs, listfirst(Attributes.url,deChar))>
 
 				<cfset ArrayAppend(request.accordion.item,Attributes)/>
 

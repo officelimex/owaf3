@@ -50,7 +50,7 @@
 			<cfset nurl = control & '.' & method/>
 
     </cfif>
-
+ 
     <cfif listFindNoCase(request.user.pageURLs, nurl)>
 
 	   <cfassociate basetag="cf_Commands"/>
