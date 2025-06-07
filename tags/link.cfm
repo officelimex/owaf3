@@ -40,7 +40,8 @@
 	<cfif Attributes.type == "execute" || Attributes.type == "ajax">
 		
 		<cfparam name="Attributes.confirm" type="string" default="Are you sure"/>
-		<cfparam name="Attributes.redirectURL" type="string" default=""/>
+		<cfparam name="Attributes.redirect" type="string" default=""/>
+		<cfparam name="Attributes.redirectURL" type="string" default="#Attributes.redirect#"/>
 		<cfparam name="Attributes.redirectType" type="string" default=""/> <!--- "" or "modal" --->
 
 		<cfset method =  listlast(listFirst(listlast(Attributes.url,'?'),'&'),'=')/>
@@ -61,9 +62,6 @@
 	<cfset THISTAG.GeneratedContent = "" />
 	
 	<cfset deChar = "~"/>
-	<cfif listFindNoCase(nurl, "@")>
-		<cfset deChar = "@"/>
-	</cfif>
 
 	<cfif listFindNoCase(request.user.pageURLs, listfirst(nurl, deChar))>
 

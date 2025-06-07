@@ -59,9 +59,7 @@
 		</cfif>
 		<!----TODO: turn the above to a global function --->
 		<cfset deChar = "~"/>
-    <cfif listFindNoCase(_url, "@")>
-        <cfset deChar = "@"/>
-    </cfif>
+
 		<cfif listFindNoCase(request.user.pageURLs, listfirst(_url,deChar))>
 			<cfset buildLink = true/>
 		</cfif>

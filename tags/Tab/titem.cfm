@@ -25,9 +25,6 @@
       <cfset ArrayAppend(request.tab_item[base_tag.Id], Attributes)/>
    <cfelse>
       <cfset deChar = "~"/>
-      <cfif listFindNoCase(Attributes.url, "@")>
-         <cfset deChar = "@"/>
-      </cfif>      
       <cfif listFindNoCase(request.user.pageURLs, listfirst(Attributes.url,deChar))>
          <cfset ArrayAppend(request.tab_item[base_tag.Id], Attributes)/>
       </cfif>

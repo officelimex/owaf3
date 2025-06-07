@@ -24,9 +24,7 @@
 
 <cfelse>
 	<cfset deChar = "~"/>
-	<cfif listFindNoCase(Attributes.url, "@")>
-		<cfset deChar = "@"/>
-	</cfif>
+
 	<cfset Attributes.Content = THISTAG.GeneratedContent />
 	<cfset THISTAG.GeneratedContent = "" />
 

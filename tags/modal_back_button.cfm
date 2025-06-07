@@ -10,9 +10,6 @@
 		<cfparam name="Attributes.position" type="string" default="left"/>
 		
 		<cfset deChar = "~"/>
-		<cfif listFindNoCase(Attributes.url, "@")>
-			<cfset deChar = "@"/>
-		</cfif>
 		<!--- close tag --->
 			
 		<cfif listFindNoCase(request.user.pageURLs, listfirst(Attributes.url,deChar))>
