@@ -39,7 +39,7 @@
                   <cfif view.anonymous>
                     Anonymous User.
                   <cfelse>
-                    #comments.postedBy_Surname# #comments.postedBy_OtherNames#.
+                    #comments.postedBy_FirstName# #comments.postedBy_Surname#.
                   </cfif>
                 </h5>
               </div>
