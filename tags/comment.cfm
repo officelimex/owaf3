@@ -7,7 +7,7 @@
 		<cfparam name="Attributes.TagName" type="string" default="comment"/>
 		<cfparam name="Attributes.modelid" type="numeric"/>
 		<cfparam name="Attributes.order" type="string" default="asc"/><!--- asc, desc ---->
-		<cfparam name="Attributes.tenantid" type="numeric" default="0"/>
+		<cfparam name="Attributes.tenantId" type="numeric" default="0"/>
 		<cfparam name="Attributes.key" type="numeric"/>
 		<cfparam name="Attributes.title" type="string" default="Comments"/>
 		<cfparam name="Attributes.redirectURL" type="string" default="#url.current_page_url#"/>
@@ -17,12 +17,8 @@
 		<cfparam name="Attributes.modalPosition" type="string" default=""/>
 		<cfparam name="Attributes.modalTitle" type="string" default=""/>
 
-		<cfif isDefined("request.user.tenantid")>
-			<cfif request.user.tenantid == 12>
-				<cfparam name="Attributes.duration" default="60"/>
-			<cfelse>
-				<cfparam name="Attributes.duration"  default="3"/>
-			</cfif>
+		<cfif isDefined("request.user.tenantId")>
+			<cfparam name="Attributes.duration" default="3"/>
 		</cfif>
 		
 		<cfparam name="Attributes.copy" type="string" default=""/>
@@ -93,7 +89,7 @@
 							<cfif attributes.anonymous>
 								<img src="assets/img/profile.png" alt="..." class="avatar-img rounded-circle">
 							<cfelse>
-								<img src="#application.s3.url#pub/#request.user.tenantid#/passport/#request.user.Picture#" alt="..." class="avatar-img rounded-circle">
+								<img src="#application.s3.url#pub/#request.user.tenantId#/passport/#request.user.Picture#" alt="..." class="avatar-img rounded-circle">
 							</cfif>
 						</div>
 					</div>
@@ -107,14 +103,14 @@
 							<input type="hidden" name="ModelId" value="#Attributes.ModelId#"/>
 							<input type="hidden" name="PostedByUserId" value="#request.user.userid#"/>
 							<input type="hidden" name="Subject" value="#attributes.subject#"/>
-							<input type="hidden" name="TenantId" value="#request.user.tenantid#"/>
+							<input type="hidden" name="TenantId" value="#request.user.tenantId#"/>
 							<input type="hidden" name="ContentSuffix" value="#Attributes.ContentSuffix#"/>
 
 							<cfif Attributes.sendMail>
 								<input type="hidden" name="to" value="#attributes.to#"/>
 								<input type="hidden" name="Copy" value="#attributes.copy#" default=""/>
 							</cfif>
-							<cfif Attributes.showcopy>
+							<cfif Attributes.showCopy>
 								<input type="hidden" name="cc" class="form-control" style="margin-top:5px;" value="#Attributes.copy#"/>
 							</cfif>
 
@@ -149,7 +145,7 @@
 				<cfscript>
 					public string function getActiveStaffEmail()	{
 
-						local.rt = createobject('component','#Attributes.project#.models.' & application.model.EMPLOYEE).init().getActiveStaffEmail()
+						local.rt = createObject('component','#Attributes.project#.models.' & application.model.EMPLOYEE).init().getActiveStaffEmail()
 
 						return local.rt
 					}
@@ -169,7 +165,7 @@
 
 						<cfset cmt = "$('###form_id# textarea[name=comment]')"/>
 
-						<cfif attributes.showcopy>
+						<cfif attributes.showCopy>
 							<cfset cc = "$('###form_id# input[name=cc]')"/>
 							#cc#.select2({
 								tags:[

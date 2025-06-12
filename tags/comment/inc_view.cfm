@@ -7,11 +7,13 @@
   <cfparam name="Attributes.modelid" default=""/>
   <cfparam name="Attributes.order" default=""/>
   <cfparam name="Attributes.duration" default="3"/>
+
+  <cfset Attributes.duration = 10/>
   
   <cfparam name="view.anonymous" default="#attributes.anonymous#"/>
   <cfparam name="view.editable" default="#attributes.editable#"/>
   <cfparam name="view.redirectURL" default="#attributes.redirectURL#"/>
-  <cfparam name="view.pageid" default="#attributes.pageid#"/>
+  <cfparam name="view.pageId" default="#attributes.pageId#"/>
   <cfparam name="view.key" default="#attributes.key#"/>
   <cfparam name="view.modelid" default="#attributes.modelid#"/>
   <cfparam name="view.order" default="#attributes.order#"/>
@@ -37,9 +39,9 @@
               <div class="col">
                 <h5 class="comment-title">
                   <cfif view.anonymous>
-                    Anonymous User.
+                    Anonymous User
                   <cfelse>
-                    #comments.postedBy_Surname# #comments.postedBy_OtherNames#.
+                    #comments.postedBy_FirstName# #comments.postedBy_Surname#
                   </cfif>
                 </h5>
               </div>
@@ -49,7 +51,7 @@
                 
                 <cfif (view.editable) && (request.user.UserId == comments.PostedByUserId) && (dateDiff('d', comments.Created, now()) <= Attributes.duration)>
                   <cf_link 
-                    modaltitle="Update your Comment"
+                    modalTitle="Update your Comment"
                     type="modal"
                     class="edit"
                     url="plugin.comment.update@#comments.CommentId#" 
@@ -59,11 +61,11 @@
                     type="execute"
                     class="edit text-danger"
                     url="plugin/Comment.cfc?method=delete&id=#comments.CommentId#" 
-                    renderTo="#view.pageid#"
+                    renderTo="#view.pageId#"
                     changeURL="false"
                     flashMessage="Comment was deleted"
                     redirectURL="plugin.comment.view"
-                    redirectURLparam="pageid=#view.pageid#&key=#view.key#&modelid=#view.modelid#&order=#view.order#&anonymous=#view.anonymous#&editable=#view.editable#&redirectURL=#view.redirectURL#" icon="times"></cf_link>
+                    redirectURLparam="pageId=#view.pageId#&key=#view.key#&modelid=#view.modelid#&order=#view.order#&anonymous=#view.anonymous#&editable=#view.editable#&redirectURL=#view.redirectURL#" icon="times"></cf_link>
                 <cfelse>
                   <br/>
                 </cfif>
@@ -89,7 +91,7 @@
               <ul class="fa-ul">
               <cfloop list="#comments.Files#" delimiters="|" item="f" index="i">
               <li>
-                <span class="fa-li"><i class="#getfileType(f)#"></i></span>
+                <span class="fa-li"><i class="#getFileType(f)#"></i></span>
                 <!--- <a target="_blank" href="#application.s3.url#pvt/#comments.company_TenantId#/document/comment/#comments.FileNames#/#f#">...#right(f,45)#</a> --->
                 <cfset _key = encrypt(comments.CommentId & "-" & request.user.userid & "-#i++#-#comments.TenantId#" , application.owaf.secretkey, 'AES/CBC/PKCS5Padding', 'Hex')/>
                 <small><a target="_blank" href="attachment/view.cfm?file=#_key#">...#right(f,40)#</a></small>
