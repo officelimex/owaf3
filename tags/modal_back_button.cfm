@@ -9,9 +9,10 @@
 		<cfparam name="Attributes.title" type="string"/>
 		<cfparam name="Attributes.position" type="string" default="left"/>
 		
+		<cfset deChar = "~"/>
 		<!--- close tag --->
 			
-		<cfif listFindNoCase(request.user.pageURLs, listfirst(Attributes.url,'@'))>
+		<cfif listFindNoCase(request.user.pageURLs, listfirst(Attributes.url,deChar))>
 			<cfset back_id = application.fn.getRandomvariable()/>
 			<cfset back_id2 = application.fn.getRandomvariable()/>
 			<script>

@@ -324,26 +324,25 @@
                                             <cfswitch expression="#x.type#">
 
                                                 <cfcase value="load">
-                                                    <cfset murl = "#x.modalurl#@""+#x.key#+"""/>
+                                                    <cfset murl = "#x.modalurl#~""+#x.key#+"""/>
                                                     <cfif x.modalurl == "">
                                                         <cfset murl = ""/>
                                                     </cfif>
                                                     <cfif x.renderTo == "">
-                                                        <cfset url_ = "loadPage('#x.url#@""+#x.key#+""',{'title':'#x.pagetitle#&nbsp;""+#x.PageColumn#+""','param':'#x.urlparam#','changeURL':#x.changeURL#,'forcePageReload':#x.forcePageReload#,'modalurl':'#murl#'})"/>
+                                                    	<cfset url_ = "loadPage('#x.url#~""+#x.key#+""',{'title':'#x.pagetitle#&nbsp;""+#x.PageColumn#+""','param':'#x.urlparam#','changeURL':#x.changeURL#,'forcePageReload':#x.forcePageReload#,'modalurl':'#murl#'})"/>
 																										<cfelse>
 																												<cfset _sp = ""/>
 																												<cfif x.samePage>
 																													<cfset _sp = "'samePage':true,"/>
 																												</cfif>
-                                                        <cfset url_ = "loadPage('#x.url#@""+#x.key#+""',{#_sp#'title':'#x.pagetitle#&nbsp;""+#x.PageColumn#+""','param':'#x.urlparam#','renderTo':'#x.renderTo#','changeURL':#x.changeURL#,'forcePageReload':#x.forcePageReload#,'modalurl':'#murl#'})"/>
+                                                        <cfset url_ = "loadPage('#x.url#~""+#x.key#+""',{#_sp#'title':'#x.pagetitle#&nbsp;""+#x.PageColumn#+""','param':'#x.urlparam#','renderTo':'#x.renderTo#','changeURL':#x.changeURL#,'forcePageReload':#x.forcePageReload#,'modalurl':'#murl#'})"/>
                                                     </cfif>
                                                 </cfcase>
 
 																								<cfcase value="modal">  
 																										<!---- 'backdrop': '#x.backdrop#','keyboard': #x.keyboard#,  ---->
                                                     <!---cfset _pg_title = request.grid.columns[x.PageColumn+1].Name/--->
-                                                    <cfset url_ = "showModal('#x.url#@""+#x.key#+""',{'backdrop':'#x.backdrop#','keyboard':#x.keyboard#,'position':'#x.modalPosition#','title':'#x.pagetitle#&nbsp;""+page_column+""',#param_#})"/>
-                                                    <!---cfset url_ = "showModal('#x.url#@'+#x.key#,{'position':'#x.modalPosition#','title':'#x.pagetitle#&nbsp;'+#x.PageColumn#,#param_#})"/---->
+                                                    <cfset url_ = "showModal('#x.url#~""+#x.key#+""',{'backdrop':'#x.backdrop#','keyboard':#x.keyboard#,'position':'#x.modalPosition#','title':'#x.pagetitle#&nbsp;""+page_column+""',#param_#})"/>
                                                     <!---cfscript>
                                                         systemoutput("======================", true)
                                                         systemoutput(url_, true)

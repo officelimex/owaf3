@@ -53,7 +53,7 @@
 							#_t#
 						</a>
 					<cfelse>
-						<a onclick="loadPage('#_u#@#_k#',{'title':'#_t#'})">
+						<a onclick="loadPage('#_u#~#_k#',{'title':'#_t#'})">
 							#_t#
 						</a>
 					</cfif>

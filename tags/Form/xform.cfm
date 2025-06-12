@@ -198,11 +198,11 @@
 								//alert(#rdi#);
 								if(#rdi#!='')   {
 									<cfset curl = replace(Attributes.current_url,'.','_','all')/>
-									<cfset curl = replace(curl,'@','_')/>
+									<cfset curl = replace(curl,'~','_')/>
 
 									if (data != undefined) {
 										<!----:TODO fix bug herer ---->
-										#rdi# = #rdi#.replace('@key','@'+data['KEY']);
+										#rdi# = #rdi#.replace('@key','~'+data['KEY']);
 									}
 									if(#rdi_target#!="") 	{
 										

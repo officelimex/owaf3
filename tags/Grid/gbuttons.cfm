@@ -58,7 +58,9 @@
 			<cfset _url = control & '.' & method/>
 		</cfif>
 		<!----TODO: turn the above to a global function --->
-		<cfif listFindNoCase(request.user.pageURLs, listfirst(_url,'@'))>
+		<cfset deChar = "~"/>
+
+		<cfif listFindNoCase(request.user.pageURLs, listfirst(_url,deChar))>
 			<cfset buildLink = true/>
 		</cfif>
 
@@ -113,7 +115,7 @@
 						#button.title#
 					</a> --->
 					<cfset _nurl = replace(button.url,'.','/','all')/>
-					<cfset _nurl = replace(_nurl,'@','.cfm?id=')/>
+					<cfset _nurl = replace(_nurl,'~','.cfm?id=')/>
 					<a class="<cfif Attributes.group>dropdown-item<cfelse>btn btn-sm</cfif> #Attributes.buttonprefix##button.style#"
 						title="#button.help#"
 						href="views/#_nurl#"
@@ -178,7 +180,7 @@
 				</cfcase>
 				<cfcase value="print">
 					<cfset _printurl = replace(button.url,'.','/','all')/>
-					<cfset _printurl = replace(_printurl,'@','&id=')/>
+					<cfset _printurl = replace(_printurl,'~','&id=')/>
 					<a class="<cfif Attributes.group>dropdown-item<cfelse>btn btn-sm</cfif> #Attributes.buttonprefix##button.style#" href="views/inc/print/print.cfm?page=#_printurl#" title="#button.help#" target="_blank">
 						<cfif button.icon != "">
 							<i class="#button.icontype##button.icon#"></i>
@@ -188,7 +190,7 @@
 				</cfcase>
 				<cfcase value="blank">
 					<cfset _printurl = replace(button.url,'.','/','all')/>
-					<cfset _printurl = replace(_printurl,'@','.cfm?id=')/>
+					<cfset _printurl = replace(_printurl,'~','.cfm?id=')/>
 					<a class="<cfif Attributes.group>dropdown-item<cfelse>btn btn-sm</cfif> #Attributes.buttonprefix##button.style#" href="views/#_printurl#" title="#button.help#" target="_blank">
 						<cfif button.icon != "">
 							<i class="#button.icontype##button.icon#"></i>

@@ -211,7 +211,7 @@
 				request.view_path = "views/";
 	 			//request._page = url_;
 	 			//request.include_page = request.view_path & lcase(replace(ctrl_page,'.','/','all')) & "/" & lcase(_action) & ".cfm";
-				request.include_page = request.view_path & listfirst(lcase(replace(url_,'.','/','all')),'@') & ".cfm";
+				request.include_page = request.view_path & listfirst(lcase(replace(url_,'.','/','all')),'~') & ".cfm";
 
 			}
 		}

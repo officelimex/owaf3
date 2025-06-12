@@ -41,7 +41,9 @@
                   <cfif view.anonymous>
                     Anonymous User
                   <cfelse>
-                    #comments.postedBy_FirstName# #comments.postedBy_Surname#
+
+                    #comments.postedBy_FirstName# #comments.postedBy_Surname#.
+
                   </cfif>
                 </h5>
               </div>
@@ -54,7 +56,7 @@
                     modalTitle="Update your Comment"
                     type="modal"
                     class="edit"
-                    url="plugin.comment.update@#comments.CommentId#" 
+                    url="plugin.comment.update~#comments.CommentId#" 
                     urlparam="redirect=#view.redirectURL#">edit</cf_link>
                   <span class="edit text-muted">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                   <cf_link 

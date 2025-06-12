@@ -102,7 +102,7 @@
 																				</div>
 																			"/>
 																			<cfset popv = listAppend(popv, cpopv, "|")/>
-																			<a class="leave" <cfif Attributes.url neq "">href="javascript:showModal('#Attributes.url#@#item.key#', {title: 'Info for #item.Name#'});"</cfif> data-toggle="popover" data-placement="bottom" data-trigger="hover" data-html="true" data-content="#cpopv#" style="background-color:###item.color#">&nbsp;&nbsp;#item.Alias#</a>
+																			<a class="leave" <cfif Attributes.url neq "">href="javascript:showModal('#Attributes.url#~#item.key#', {title: 'Info for #item.Name#'});"</cfif> data-toggle="popover" data-placement="bottom" data-trigger="hover" data-html="true" data-content="#cpopv#" style="background-color:###item.color#">&nbsp;&nbsp;#item.Alias#</a>
 																		</cfif>																		
 																	</cfloop>
 																	<cfset c = replace(popv,'|',"<hr class='mt-2 mb-2'/>",'all')/>
